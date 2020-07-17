@@ -1,0 +1,49 @@
+﻿@{
+    ViewData["Title"] = "Welcome";
+}
+
+<style>
+    .vert-center-text {
+        position: absolute;
+        top: 10%;
+        left: 0;
+        text-align: center;
+        width: 100%;
+    }
+
+    .vert-center-text h1 {
+        color: white;
+    }
+
+    .vert-center-container {
+        position: relative;
+        width: 100%;
+    }
+
+    .full {
+        margin: 0;
+        padding: 0;
+        width: 100vw;
+        height: calc(100vh - 10%)
+    }
+</style>
+
+<div class="vert-center-container full">
+    <div id="carouselExampleSlidesOnly" class="carousel slide" data-ride="carousel">
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+                <img class="d-block w-100" src="~/images/testslide1.svg" alt="First slide">
+            </div>
+            <div class="carousel-item">
+                <img class="d-block w-100" src="~/images/testslide2.svg" alt="Second slide">
+            </div>
+            <div class="carousel-item">
+                <img class="d-block w-100" src="~/images/testslide3.svg" alt="Third slide">
+            </div>
+        </div>
+    </div>
+    <div class="vert-center-text">
+        <h1 class="display-4">Welcome to Mechanists</h1>
+        <img src="~/images/mechanists_logo_transparent.png" alt="Mechanists Logo">
+    </div>
+</div>

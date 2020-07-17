@@ -1,0 +1,91 @@
+﻿@model IEnumerable<Mechanist_Website.Models.MembersInfo>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.DiscordID)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.IsAdmin)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DiscordName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.MCName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DateAccepted)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Twitch)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Youtube)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Website)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Retired)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.DiscordID)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IsAdmin)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DiscordName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.MCName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DateAccepted)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Twitch)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Youtube)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Website)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Retired)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.MemberID">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.MemberID">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.MemberID">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
+
+<a asp-action="Index" asp-controller="Management">Back to Management</a>

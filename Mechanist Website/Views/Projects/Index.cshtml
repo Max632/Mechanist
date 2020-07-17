@@ -1,0 +1,41 @@
+﻿@model List<ProjectInfo>
+
+@{
+    ViewData["Title"] = "Projects";
+}
+
+<style>
+    h1 {
+        padding-top: 3%
+    }
+
+    tbody tr:hover {
+        background: gray;
+    }
+
+    a, a:visited, a:hover, a:active {
+        color: inherit;
+    }
+</style>
+<h1>Projects</h1>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th scope="col">Name</th>
+            <th scope="col">Date Updated</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (ProjectInfo project in Model)
+        {
+            if (!project.Depreciated)
+            {
+                <tr>
+                    <th style="white-space:nowrap" scope="row"><a href="@Url.Action("Project", "Projects", project)">@project.Name</a></th>
+                    <td style="white-space:nowrap">@project.DateUpdated</td>
+                </tr>
+            }
+        }
+    </tbody>
+</table>

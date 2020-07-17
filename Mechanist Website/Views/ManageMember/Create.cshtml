@@ -1,0 +1,75 @@
+﻿@model Mechanist_Website.Models.MembersInfo
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Create</h1>
+
+<h4>MembersInfo</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="DiscordID" class="control-label"></label>
+                <input asp-for="DiscordID" class="form-control" />
+                <span asp-validation-for="DiscordID" class="text-danger"></span>
+            </div>
+            <div class="form-group form-check">
+                <label class="form-check-label">
+                    <input class="form-check-input" asp-for="IsAdmin" /> @Html.DisplayNameFor(model => model.IsAdmin)
+                </label>
+            </div>
+            <div class="form-group">
+                <label asp-for="DiscordName" class="control-label"></label>
+                <input asp-for="DiscordName" class="form-control" />
+                <span asp-validation-for="DiscordName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="MCName" class="control-label"></label>
+                <input asp-for="MCName" class="form-control" />
+                <span asp-validation-for="MCName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Name" class="control-label"></label>
+                <input asp-for="Name" class="form-control" />
+                <span asp-validation-for="Name" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="DateAccepted" class="control-label"></label>
+                <input asp-for="DateAccepted" class="form-control" />
+                <span asp-validation-for="DateAccepted" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Twitch" class="control-label"></label>
+                <input asp-for="Twitch" class="form-control" />
+                <span asp-validation-for="Twitch" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Youtube" class="control-label"></label>
+                <input asp-for="Youtube" class="form-control" />
+                <span asp-validation-for="Youtube" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Website" class="control-label"></label>
+                <input asp-for="Website" class="form-control" />
+                <span asp-validation-for="Website" class="text-danger"></span>
+            </div>
+            <div class="form-group form-check">
+                <label class="form-check-label">
+                    <input class="form-check-input" asp-for="Retired" /> @Html.DisplayNameFor(model => model.Retired)
+                </label>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+

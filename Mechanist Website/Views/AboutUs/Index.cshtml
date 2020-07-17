@@ -1,0 +1,85 @@
+﻿@model List<MembersInfo>
+
+@{
+    ViewData["Title"] = "About Us";
+}
+
+<h1>About Us</h1>
+
+<h4>Mechanists:</h4>
+<p>Mechanists is a Technical Minecraft Server on 1.15.2 Check out our progress in the projects tab up above.</p>
+<h4>Server Details:</h4>
+<p>We run our server on a Ryzen 5 3600 with 6gb of ram. Our server is semi vanilla minecraft,
+    meaning that we try to stick as close to vanilla as possible, but we use mods such as Carpet, miscellaneous data packs,
+    or Lithium and Phosphor to boost server performance.</p>
+<h4>Carpet Fearures</h4>
+<p>
+    -Accurate Block placement <br>
+    -AntiCheat Disabled <br>
+    -Ctrl QCrafting Fix <br>
+    -Fast Redstone Dust <br>
+    -Fliping Cactus <br>
+    -Lagg Free Spawning <br>
+    -Missing Tools <br>
+    -One Player Sleep <br>
+    -Optimized TNT <br>
+    -Portal Suffocation Fix <br>
+    -Shulker Spawn In End Cities <br>
+    -Stackable Shulker Boxes <br>
+</p>
+<h4>Vanilla Tweaks Data Packs</h4>
+<p>
+    -AFK display <br>
+    -Track Raw Statistics <br>
+    -Player Heads Drop <br>
+    -Nether Coordinates <br>
+</p>
+
+<h2>Members:</h2>
+<table class="table">
+    <thead>
+        <tr>
+            <th scope="col">Discord Name</th>
+            <th scope="col">Minecraft Name</th>
+            <th scope="col">Name</th>
+            <th scope="col">Date Accepted</th>
+            <th scope="col" colspan="4">Media</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (MembersInfo member in Model)
+        {
+            if (!member.Retired)
+            {
+                <tr>
+                    <th style="white-space:nowrap" scope="row">@member.DiscordName</th>
+                    <td style="white-space:nowrap">@member.MCName</td>
+                    <td style="white-space:nowrap">@member.Name</td>
+                    <td style="white-space:nowrap">@member.DateAccepted</td>
+                    <td style="white-space:nowrap" colspan="4">
+                        @if (member.Twitch != null)
+                        {
+                            <a href="member.Twitch">Twitch</a>
+                            if (member.Youtube != null || member.Website != null)
+                            {
+                                <span>,</span>
+                            }
+                        }
+                        @if (member.Youtube != null)
+                        {
+                            <a href="member.Youtube">Youtube</a>
+                            if (member.Website != null)
+                            {
+                                <span>,</span>
+                            }
+                        }
+                        @if (member.Website != null)
+                        {
+                            <a href="member.Website">Website</a>
+                        }
+                    </td>
+                </tr>
+            }
+        }
+    </tbody>
+</table>

@@ -1,0 +1,39 @@
+﻿@model List<DownloadInfo>
+
+@{
+    ViewData["Title"] = "Downloads";
+}
+
+<style>
+    h1 {
+        padding-top: 3%
+    }
+    tbody tr:hover {
+        background: gray;
+    }
+    a, a:visited, a:hover, a:active {
+        color: inherit;
+    }
+</style>
+<h1>Downloads</h1>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th scope="col">Name</th>
+            <th scope="col">Credit</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (DownloadInfo dl in Model)
+        {
+            if (!dl.Depreciated)
+            {
+                <tr>
+                    <th style="white-space:nowrap" scope="row"><a href="@Url.Action("Download", "Downloads", dl)">@dl.Name</a></th>
+                    <td style="white-space:nowrap">@dl.Credit</td>
+                </tr>
+            }
+        }
+    </tbody>
+</table>

@@ -1,0 +1,46 @@
+﻿@using Microsoft.AspNetCore.Authorization
+@inject IAuthorizationService AuthorizationService
+
+@model List<MembersInfo>
+
+@{
+    ViewData["Title"] = "Management";
+}
+
+<style>
+    .vert-center-text {
+        position: absolute;
+        top: 200px;
+        left: 0;
+        text-align: center;
+        width: 100%;
+    }
+</style>
+
+@if ((User?.Identity?.IsAuthenticated ?? false))
+{
+    if (Model.Where(m => m.DiscordID.ToString() == User.Claims.First().Value).ToList().Count > 0)
+    {
+        <h1>Welcome, @User.Identity.Name, to Management Tools</h1>
+        @if ((await AuthorizationService.AuthorizeAsync(User, "IsAdmin")).Succeeded)
+        {
+            <h2><a asp-action="Index" asp-controller="ManageMember">Manage Members (Admin Only)</a></h2>
+            <h2><a asp-action="Index" asp-controller="ManageProjects">Manage Projects (Admin Only)</a></h2>
+        }
+        <h2><a asp-action="Index" asp-controller="ManageDownload">Manage Downloads</a></h2>
+
+        <a class="btn btn-lg btn-danger" href="/signout?returnUrl=%2F">Sign out</a>
+    }
+    else
+    {
+        <h1>Hi, @User.Identity.Name</h1>
+        <p>You have not been registered by an admin as a member. If you think this is a mistake please contact a Mechanist Admin</p>
+    }
+}
+else
+{
+    <div class="vert-center-text">
+        <h1 class="display-4">Management Tools - Please Sign in for Access</h1>
+        <a class="btn btn-lg btn-success align-items-center" href="signin?returnUrl=%2F">Sign in</a>
+    </div>
+}
