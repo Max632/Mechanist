@@ -22,9 +22,10 @@ namespace Mechanist_Website.Data
             {
                 new MembersInfo { DiscordName="Allu#0801", MCName="AlluTheCreator", Name = "Allu", DiscordID=268855990512910336, IsAdmin=true, DateAccepted = DateTime.Now, Retired = false, Twitch="https://www.twitch.tv/alluthecreator"},
                 new MembersInfo { DiscordName="Elvar#6660", MCName="Elvar", DiscordID=516373096899411979, IsAdmin=true, DateAccepted = DateTime.Now, Retired = false, Youtube="https://www.youtube.com/channel/UC_a3kJv9CmuFZlQOJ1jVS5w"},
-                new MembersInfo { DiscordName="TK#0695", MCName="TK", DiscordID=250378512123428886, IsAdmin=true, DateAccepted = DateTime.Now, Retired = false, Youtube="https://www.youtube.com/channel/UCaLY1yqQtaMs1n5f9WnlDWA"},
+                new MembersInfo { DiscordName="TK#0695", MCName="TK", DiscordID=499671366250004492, IsAdmin=true, DateAccepted = DateTime.Now, Retired = false, Youtube="https://www.youtube.com/channel/UCaLY1yqQtaMs1n5f9WnlDWA"},
                 new MembersInfo { DiscordName="Orion#8062", MCName="_0rion", Name="Max", DiscordID=250378512123428886, IsAdmin=true, DateAccepted = DateTime.Now, Retired = false},
                 new MembersInfo { DiscordName="Kdender#7327", MCName="Kdender", DiscordID=358645602357215232, IsAdmin=true, DateAccepted = DateTime.Now, Retired = false, Youtube="https://www.youtube.com/Kdender", Twitch = "https://twitch.tv/kdender", Website = "http://kdender.com"},
+                new MembersInfo { DiscordName="Dixon#2735", MCName="Dixon", DiscordID=363966246456131595, IsAdmin=true, DateAccepted = DateTime.Now, Retired = false},
             };
 
             members.ForEach(m => context.Members.Add(m));
